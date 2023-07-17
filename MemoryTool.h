@@ -155,7 +155,7 @@ void MemorySearchAll_DWORD(int32_t value)
             }
         }
     }
-    //pNew->next=NULL;//链表尾为空
+    //pEnd->next=NULL;//链表尾为空
     ResCount = iCount;
     Res = pHand;
     return;
@@ -187,7 +187,7 @@ void MemorySearchAll_FLOAT(float value)
             }
         }
     }
-    //pNew->next=NULL;//链表尾为空
+    //pEnd->next=NULL;//链表尾为空
     ResCount = iCount;
     Res = pHand;
     return;
@@ -234,7 +234,7 @@ void MemorySearch_DWORD(int32_t value, const char* ModuleName)
             }
         }
     }
-    //pNew->next=NULL;//链表尾为空
+    //pEnd->next=NULL;//链表尾为空
     ResCount = iCount;
     Res = pHand;
     return;
@@ -281,7 +281,7 @@ void MemorySearch_FLOAT(float value, const char * ModuleName)
             }
         }
     }
-    //pNew->next=NULL;//链表尾为空
+    //pEnd->next=NULL;//链表尾为空
     ResCount = iCount;
     Res = pHand;
     return;
@@ -320,7 +320,7 @@ void MemoryOffset_DWORD(int32_t value, int32_t offset)
             pEnd = pNew;
         }
     }
-    //pNew->next=NULL;//链表尾为空
+    //pEnd->next=NULL;//链表尾为空
     ClearRes();
     ResCount = iCount;
     Res = pHand;
@@ -347,7 +347,7 @@ void MemoryOffset_FLOAT(float value, int32_t offset)
             pEnd = pNew;
         }
     }
-    //pNew->next=NULL;//链表尾为空
+    //pEnd->next=NULL;//链表尾为空
     ClearRes();
     ResCount = iCount;
     Res = pHand;
