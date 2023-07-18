@@ -131,23 +131,23 @@ void SetProcess(const char * processName)
 void MemorySearchAll_DWORD(int32_t value)
 {
     uint64_t StartAddr = 0;
-    uint64_t EndAddr = 0x4ffff000;
-    uint64_t c = EndAddr / 4096;
-    int32_t buff[1024] = {0};
+    uint64_t EndAddr = 0x4fff0000;
+    uint64_t c = EndAddr / 65536;
+    float buff[16384] ={0};
     uint32_t iCount = 0;
     RESS pHand, pNew, pEnd;
     pHand = pEnd = (RESS) malloc(sizeof(RES));
     for (int j = 0; j < c; j++)
     {
-        if (ReadProcessMemory(handle, (LPVOID)(StartAddr + j * 4096), & buff, 0x1000, NULL))
+        if (ReadProcessMemory(handle, (LPVOID)(StartAddr + j * 65536), & buff, 0x10000, NULL))
         {
-            for (int i = 0; i < 1024; i++)
+            for (int i = 0; i < 16384; i++)
             {
                 if (buff[i] == value)
                 {
                     iCount++;
                     pNew = (RESS)malloc(sizeof(RES));
-                    pNew -> addr = StartAddr + j * 4096 + i * 4;
+                    pNew -> addr = StartAddr + j * 65536 + i * 4;
                     //pNew->next=NULL;//链表尾为空
                     pEnd -> next = pNew;
                     pEnd = pNew;
@@ -163,23 +163,23 @@ void MemorySearchAll_DWORD(int32_t value)
 void MemorySearchAll_FLOAT(float value)
 {
     uint64_t StartAddr = 0;
-    uint64_t EndAddr = 0x4ffff000;
-    uint64_t c = EndAddr / 4096;
-    float buff[1024] ={0};
+    uint64_t EndAddr = 0x4fff0000;
+    uint64_t c = EndAddr / 65536;
+    float buff[16384] ={0};
     uint32_t iCount = 0;
     RESS pHand, pNew, pEnd;
     pHand = pEnd = (RESS) malloc(sizeof(RES));
     for (int j = 0; j < c; j++)
     {
-        if (ReadProcessMemory(handle, (LPVOID)(StartAddr + j * 4096), & buff, 0x1000, NULL))
+        if (ReadProcessMemory(handle, (LPVOID)(StartAddr + j * 65536), & buff, 0x10000, NULL))
         {
-            for (int i = 0; i < 1024; i++)
+            for (int i = 0; i < 16384; i++)
             {
                 if (buff[i] == value)
                 {
                     iCount++;
                     pNew = (RESS) malloc(sizeof(RES));
-                    pNew -> addr = StartAddr + j * 4096 + i * 4;
+                    pNew -> addr = StartAddr + j * 65536 + i * 4;
                     //pNew->next=NULL;//链表尾为空
                     pEnd -> next = pNew;
                     pEnd = pNew;
